@@ -9,7 +9,7 @@
           <span class="sr-only">
             Toggle navigation
           </span>
-          <span class="navbar-toggler-icon"></span>
+        <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse"
              id="navcol-1">
@@ -50,6 +50,9 @@
 </script>
 
 <style scoped>
+  #nav-section {
+    background: linear-gradient(0deg, rgba(24,38,121,.4), rgba(19,31,99,.8)), url('../../assets/img/data-center.jpg');
+  }
 
   .navigation-clean-button {
     background: #fff;
@@ -169,7 +172,7 @@
   }
 
   nav {
-    background-color: #131f63 !important;
+    background-color: transparent !important;
   }
 
   .logoBre {
