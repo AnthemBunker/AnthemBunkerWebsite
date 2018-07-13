@@ -33,11 +33,10 @@
             </div>
             <div class="col-lg-3 item social">
               <h3 style="text-align: center;">Social Media</h3>
-              <font-awesome-icon :icon="facebookIcon"></font-awesome-icon>
-              <a class="socijalka" href="#"><i class="fa fa-facebook"></i></a>
-              <a class="socijalka" href="#"><i class="fa fa-linkedin"></i></a>
-              <a class="socijalka" href="#"><i class="fa fa-twitter-square"></i></a>
-              <a class="socijalka" href="#"><i class="fa fa-google-plus-square"></i></a>
+              <font-awesome-icon class="socijalka" :icon="facebookIcon" size="2x"></font-awesome-icon>
+              <font-awesome-icon class="socijalka" :icon="linkedInIcon" size="2x"></font-awesome-icon>
+              <font-awesome-icon class="socijalka" :icon="twitterIcon" size="2x"></font-awesome-icon>
+              <font-awesome-icon class="socijalka" :icon="googlePlusIcon" size="2x"></font-awesome-icon>
             </div>
           </div>
         </div>
@@ -57,13 +56,16 @@
 
 <script>
   import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-  import { faFacebook } from '@fortawesome/free-brands-svg-icons'
+  import { faFacebookF, faLinkedinIn, faTwitterSquare, faGooglePlusG } from '@fortawesome/free-brands-svg-icons'
 
   export default {
     name: 'Footer',
     data() {
       return {
-        facebookIcon: faFacebook
+        facebookIcon: faFacebookF,
+        linkedInIcon: faLinkedinIn,
+        twitterIcon: faTwitterSquare,
+        googlePlusIcon: faGooglePlusG
       }
     },
     components: {
@@ -114,25 +116,24 @@
     }
   }
 
-  .footer-clean .item.social>a {
-    font-size: 24px;
-    width: 40px;
-    height: 40px;
+  .footer-clean .item.social>svg {
+    font-size: 22px;
+    width: 44px;
     line-height: 40px;
     display: inline-block;
     text-align: center;
     margin-left: 10px;
-    margin-top: 22px;
+    margin-top: 30px;
     color: inherit;
-    opacity: .75
+    opacity: .75;
   }
 
-  .footer-clean .item.social>a:hover {
+  .footer-clean .item.social>svg:hover {
     opacity: .9
   }
 
   @media (max-width:991px) {
-    .footer-clean .item.social>a {
+    .footer-clean .item.social>svg {
       margin-top: 40px
     }
   }

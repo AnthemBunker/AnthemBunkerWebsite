@@ -62,7 +62,7 @@
 </script>
 
 <style scoped>
-  senka {
+  .senka {
     box-shadow: 0px 5px 20px -10px black;
   }
 
