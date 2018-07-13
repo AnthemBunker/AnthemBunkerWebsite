@@ -20,7 +20,7 @@
     <h1 class="text-center" style="font-size:3.25rem;color:rgb(255,255,255);padding-top:80px;">Anthem Bunker</h1>
     <p class="text-center" style="color:rgb(255,255,255);"><em>Safe&nbsp;and&nbsp;Secure&nbsp;Services&nbsp;</em><br><em>for your most valued possessions</em><br></p>
     <div style="text-align: center;">
-      <button class="btn btn-primary" type="button" style="border-radius:8px;padding-top:20px;padding-right:32px;padding-bottom:18px;padding-left:32px;margin:5%;"><a href="login.html" style="color: white;text-decoration: none;"><font-awesome-icon :icon="lockIcon" size="sm"></font-awesome-icon> LOGIN</a></button>
+      <button @click="login" class="btn btn-primary" type="button" style="border-radius:8px;padding-top:20px;padding-right:32px;padding-bottom:18px;padding-left:32px;margin:5%;"><a style="color: white;text-decoration: none;"><font-awesome-icon :icon="lockIcon" size="sm"></font-awesome-icon> LOGIN</a></button>
       <button class="btn btn-primary regBtn" type="button" style="border-radius:8px;padding-top:20px;padding-right:32px;padding-bottom:18px;padding-left:32px;margin:5%;background-color:#f9a825;border-color:#f9a825;"><a href="login.html" style="color: white;text-decoration: none;"><font-awesome-icon :icon="userIcon" size="sm"></font-awesome-icon> REGISTER</a></button>
     </div>
   </section>
@@ -29,17 +29,32 @@
 <script>
   import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
   import { faLock, faUserPlus } from '@fortawesome/free-solid-svg-icons'
+  import { makeEdgeUiContext } from 'edge-login-ui-web'
 
   export default {
     name: 'TopSectionWithNav',
     data () {
       return {
         lockIcon: faLock,
-        userIcon: faUserPlus
+        userIcon: faUserPlus,
+      }
+    },
+    methods: {
+      login: function() {
+        console.log('CONTEXT: ', this.edgeUiContext);
+        this.edgeUiContext.openLoginWindow()
       }
     },
     components: {
       FontAwesomeIcon
+    },
+    mounted: async function() {
+      this.edgeUiContext = await makeEdgeUiContext({
+        'apiKey': 'api-key-here',
+        'appId': 'com.mydomain.myapp',
+        'vendorName': 'My Awesome Project',
+        'vendorImageUrl': 'https://mydomain.com/mylogo.png'
+      });
     }
   }
 </script>
