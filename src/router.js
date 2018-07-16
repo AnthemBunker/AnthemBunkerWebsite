@@ -1,14 +1,13 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import Home from './views/Home.vue';
-import MetamaskSection from './views/Metamask.vue';
+import Home from './pages/Home.vue';
+import MetamaskSection from './pages/Metamask.vue';
 
 Vue.use(Router);
 
 export default new Router({
   mode: 'history',
-  base: process.env.NODE_ENV === 'development' ?
-    '/' : '/www.anthembunker.com/',
+  base: '/',
   routes: [{
       path: '/',
       name: 'home',

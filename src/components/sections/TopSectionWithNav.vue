@@ -1,7 +1,7 @@
 <template>
   <section id="top-section">
     <nav class="navbar navbar-light navbar-expand-md navigation-clean-button">
-      <div class="container"><a class="navbar-brand" href="#"><img class="logoBre" src="../../assets/img/logo.png"></a><button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+      <div class="container"><router-link class="navbar-brand" to="/"><img class="logoBre" src="../../assets/img/logo.png"></router-link><button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
         <div class="collapse navbar-collapse" id="navcol-1">
           <ul class="nav navbar-nav ml-auto">
             <li class="dropdown"><a class=" nav-link dropdown-toggle deprt" data-toggle="dropdown" aria-expanded="false" href="#" style="color: white;">Departments</a>
@@ -41,7 +41,6 @@
     },
     methods: {
       login: function() {
-        console.log('CONTEXT: ', this.edgeUiContext);
         this.edgeUiContext.openLoginWindow()
       }
     },
