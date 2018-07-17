@@ -7,10 +7,11 @@
           <div class="col-sm-4 col-md-3 item">
             <h3>Info</h3>
             <ul>
-              <li><a href="#">WHY</a></li>
-              <li><a href="#">FAQ</a></li>
-              <li><a href="#">News</a></li>
-              <li><a href="#">Blog</a></li>
+              <li><a href="https://www.anthemvault.com/why-gold" target="_blank">WHY</a></li>
+              <li><a href="https://www.anthemvault.com/faq/" target="_blank">FAQ</a></li>
+              <li><a href="https://www.anthemvault.com/news" target="
+                ">News</a></li>
+              <li><a href="http://news.anthemvault.com/" target="_blank">Blog</a></li>
               <li>
                 <router-link to="/metamask">Metamask</router-link>
               </li>
@@ -20,27 +21,31 @@
           <div class="col-sm-4 col-md-3 item">
             <h3>Company</h3>
             <ul>
-              <li><a href="#">Why Us</a></li>
-              <li><a href="#">Our Team</a></li>
-              <li><a href="#">Our Legacy</a></li>
-              <li><a href="#">Contact Us</a></li>
+              <li><a href="https://www.anthemvault.com/why" target="_blank">Why Us</a></li>
+              <li><a href="https://www.anthemvault.com/team" target="_blank">Our Team</a></li>
+              <li><a href="https://www.anthemvault.com/our-legacy" target="_blank">Our Legacy</a></li>
+              <li><a href="https://www.anthemvault.com/contact" target="_blank">Contact Us</a></li>
               <li><a href="https://anthemgold.com" target="_blank">AnthemGold</a></li>
             </ul>
           </div>
           <div class="col-sm-4 col-md-3 item">
             <h3>Legal</h3>
             <ul>
-              <li><a href="#">Terms of Use</a></li>
-              <li><a href="#">Privacy Policy</a></li>
+              <li><a href="https://www.anthemvault.com/terms" target="_blank">Terms of Use</a></li>
+              <li><a href="https://www.anthemvault.com/privacy" target="_blank">Privacy Policy</a></li>
               <li></li>
             </ul>
           </div>
           <div class="col-lg-3 item social">
             <h3 style="text-align: center;">Social Media</h3>
             <font-awesome-icon class="socijalka" :icon="facebookIcon" size="2x"></font-awesome-icon>
+            <!-- https://www.facebook.com/AnthemVaultInc/ -->
             <font-awesome-icon class="socijalka" :icon="linkedInIcon" size="2x"></font-awesome-icon>
+            <!-- https://www.linkedin.com/company/anthem-vault-inc-/ -->
             <font-awesome-icon class="socijalka" :icon="twitterIcon" size="2x"></font-awesome-icon>
+            <!-- https://twitter.com/AnthemVault -->
             <font-awesome-icon class="socijalka" :icon="googlePlusIcon" size="2x"></font-awesome-icon>
+            <!-- https://www.youtube.com/user/anthemvault -->
           </div>
         </div>
       </div>
