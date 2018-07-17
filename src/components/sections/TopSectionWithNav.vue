@@ -1,7 +1,14 @@
 <template>
   <section id="top-section">
     <nav class="navbar navbar-light navbar-expand-md navigation-clean-button">
-      <div class="container"><router-link class="navbar-brand" to="/"><img class="logoBre" src="../../assets/img/logo.png"></router-link><button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+      <div class="container">
+        <router-link class="navbar-brand" to="/">
+          <img class="logoBre" src="../../assets/img/logo.png">
+        </router-link>
+        <button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="navbar-toggler-icon"></span>
+        </button>
         <div class="collapse navbar-collapse" id="navcol-1">
           <ul class="nav navbar-nav ml-auto">
             <li class="dropdown"><a class=" nav-link dropdown-toggle deprt" data-toggle="dropdown" aria-expanded="false" href="#" style="color: white;">Departments</a>
@@ -11,17 +18,36 @@
                 <a class="dropdown-item" role="presentation" href="https://www.anthemgold.com/">AnthemGold</a>
                 <a class="dropdown-item" role="presentation" href="http://www.anthemvaultprofessional.com/">AnthemVault</a>
                 <a class="dropdown-item" role="presentation" href="http://www.anthemnationalreserve.com//">AnthemNationalReserve</a>
-                <a class="dropdown-item" role="presentation" href="login.html">AnthemBunker</a>
               </div>
             </li>
-          </ul><span class="navbar-text actions"> <a style="color: white;" href="login.html" class="login"><font-awesome-icon :icon="lockIcon" size="sm"></font-awesome-icon> LOGIN</a><a class="btn btn-light action-button sgnUpBtn" role="button" href="login.html" style="border:1px solid #f9a825;border-radius:3px;">SIGN UP</a></span></div>
+          </ul>
+          <span class="navbar-text actions">
+            <a @click="login" style="color: white;cursor: pointer;" class="login">
+              <font-awesome-icon :icon="lockIcon" size="sm"></font-awesome-icon>
+              LOGIN
+            </a>
+            <a @click="login" class="btn btn-light action-button sgnUpBtn" role="button" style="border:1px solid #f9a825;border-radius:3px;">
+              SIGN UP
+            </a>
+          </span>
+        </div>
       </div>
     </nav>
     <h1 class="text-center" style="font-size:3.25rem;color:rgb(255,255,255);padding-top:80px;">Anthem Bunker</h1>
     <p class="text-center" style="color:rgb(255,255,255);"><em>Safe&nbsp;and&nbsp;Secure&nbsp;Services&nbsp;</em><br><em>for your most valued possessions</em><br></p>
     <div style="text-align: center;">
-      <button @click="login" class="btn btn-primary" type="button" style="border-radius:8px;padding-top:20px;padding-right:32px;padding-bottom:18px;padding-left:32px;margin:5%;"><a style="color: white;text-decoration: none;"><font-awesome-icon :icon="lockIcon" size="sm"></font-awesome-icon> LOGIN</a></button>
-      <button class="btn btn-primary regBtn" type="button" style="border-radius:8px;padding-top:20px;padding-right:32px;padding-bottom:18px;padding-left:32px;margin:5%;background-color:#f9a825;border-color:#f9a825;"><a href="login.html" style="color: white;text-decoration: none;"><font-awesome-icon :icon="userIcon" size="sm"></font-awesome-icon> REGISTER</a></button>
+      <button @click="login" class="btn btn-primary" type="button" style="border-radius:8px;padding-top:20px;padding-right:32px;padding-bottom:18px;padding-left:32px;margin:5%;">
+        <a style="color: white;text-decoration: none;">
+          <font-awesome-icon :icon="lockIcon" size="sm"></font-awesome-icon>
+            LOGIN
+        </a>
+      </button>
+      <button @click="login" class="btn btn-primary regBtn" type="button" style="border-radius:8px;padding-top:20px;padding-right:32px;padding-bottom:18px;padding-left:32px;margin:5%;background-color:#f9a825;border-color:#f9a825;">
+        <a style="color: white;text-decoration: none;">
+          <font-awesome-icon :icon="userIcon" size="sm"></font-awesome-icon>
+            REGISTER
+        </a>
+      </button>
     </div>
   </section>
 </template>
@@ -37,11 +63,21 @@
       return {
         lockIcon: faLock,
         userIcon: faUserPlus,
+        account: null,
       }
     },
     methods: {
       login: function() {
-        this.edgeUiContext.openLoginWindow()
+        const self = this;
+        this.edgeUiContext.openLoginWindow({
+          onLogin(account) {
+            self.handleLogin(account);
+          }
+        });
+      },
+      handleLogin(account) {
+        this.account = account;
+        console.log('ACCOUNT: ', account);
       }
     },
     components: {
@@ -49,10 +85,10 @@
     },
     mounted: async function() {
       this.edgeUiContext = await makeEdgeUiContext({
-        'apiKey': 'api-key-here',
+        'apiKey': 'b2c53c18ac86c721f106f89ae8f8b7ce2c47f4de',
         'appId': 'com.mydomain.myapp',
-        'vendorName': 'My Awesome Project',
-        'vendorImageUrl': 'https://mydomain.com/mylogo.png'
+        'vendorName': 'Anthem Bunker',
+        'vendorImageUrl': 'https://anthembunker.com/assets/img/logo.png'
       });
     }
   }
