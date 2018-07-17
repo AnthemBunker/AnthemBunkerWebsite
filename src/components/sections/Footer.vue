@@ -24,6 +24,7 @@
               <li><a href="#">Our Team</a></li>
               <li><a href="#">Our Legacy</a></li>
               <li><a href="#">Contact Us</a></li>
+              <li><a href="https://anthemgold.com" target="_blank">AnthemGold</a></li>
             </ul>
           </div>
           <div class="col-sm-4 col-md-3 item">
