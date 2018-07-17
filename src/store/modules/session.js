@@ -1,7 +1,10 @@
+import { makeEdgeUiContext } from 'edge-login-ui-web'
+
 const state = {
   authenticated: false,
   wallets: [],
-  account: null
+  account: null,
+  context: null
 }
 
 const getters = {
@@ -19,21 +22,44 @@ const getters = {
 const mutations = {
   authenticate: (state, account) => {
     state.authenticated = true;
+    state.account = account;
     console.log('PAYLOAD: ', account);
   },
   endSession: state => {
     state.authenticated = false;
     state.wallets = null;
     state.account = null;
+  },
+  makeContext: (state, context) => {
+    state.context = context;
   }
 }
 
 const actions = {
-  authenticate: ({state, commit}, account) => {
+  authenticate: ({commit}, account) => {
     commit('authenticate', account);
   },
   endSession: ({commit}) => {
     commit('endSession')
+  },
+  async makeEdgeContext({commit}) {
+    const edgeConfig = {
+      'apiKey': 'b2c53c18ac86c721f106f89ae8f8b7ce2c47f4de',
+      'appId': 'com.mydomain.myapp',
+      'vendorName': 'Anthem Bunker',
+      'vendorImageUrl': 'https://anthembunker.com/assets/img/logo.png'
+    };
+    commit('makeContext', await makeEdgeUiContext(edgeConfig));
+  },
+  async openEdgeLoginUi({state, commit, dispatch}) {
+    if(!state.context) {
+      await dispatch('makeEdgeContext');
+    }
+    state.context.openLoginWindow({
+      onLogin(account) {
+        dispatch('authenticate', account);
+      }
+    });
   }
 }
 

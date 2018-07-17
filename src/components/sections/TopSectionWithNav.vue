@@ -55,41 +55,24 @@
 <script>
   import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
   import { faLock, faUserPlus } from '@fortawesome/free-solid-svg-icons'
-  import { makeEdgeUiContext } from 'edge-login-ui-web'
+  import { mapActions, mapState } from 'vuex'
 
   export default {
     name: 'TopSectionWithNav',
     data () {
       return {
         lockIcon: faLock,
-        userIcon: faUserPlus,
-        account: null,
+        userIcon: faUserPlus
       }
     },
-    methods: {
-      login: function() {
-        const self = this;
-        this.edgeUiContext.openLoginWindow({
-          onLogin(account) {
-            self.handleLogin(account);
-          }
-        });
-      },
-      handleLogin(account) {
-        this.account = account;
-        console.log('ACCOUNT: ', account);
-      }
-    },
+    computed: mapState({
+      authenticated: state => state.authenticated
+    }),
+    methods: mapActions({
+      login: 'session/openEdgeLoginUi'
+    }),
     components: {
       FontAwesomeIcon
-    },
-    mounted: async function() {
-      this.edgeUiContext = await makeEdgeUiContext({
-        'apiKey': 'b2c53c18ac86c721f106f89ae8f8b7ce2c47f4de',
-        'appId': 'com.mydomain.myapp',
-        'vendorName': 'Anthem Bunker',
-        'vendorImageUrl': 'https://anthembunker.com/assets/img/logo.png'
-      });
     }
   }
 </script>
