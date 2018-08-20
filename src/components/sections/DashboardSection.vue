@@ -2,9 +2,10 @@
     <div id="dashboard-section">
         <div id="content">
             <h1>Live Video Stream Demo</h1>
-            <div id='rtsp'></div>
-
-
+            
+            <video src="rtsp://207.70.170.170/cam/realmonitor?channel=1&subtype=0">
+                Your browser does not support RTP streams.
+            </video>
         </div>
     </div>
 </template>
@@ -13,19 +14,6 @@
 export default {
   name: "DashboardSection"
 };
-
-var format = "rtsp";
-var file =
-  "rtsp://207.70.170.170/cam/realmonitor?channel=1&subtype=0";
-
-window.jwplayer("rtsp").setup({
-  file: file,
-  image: "http://placehold.it/350x150&text=" + format,
-  aspectratio: "16:9",
-  skin: "bekle"
-});
-
-
 </script>
 
 <style scoped>
