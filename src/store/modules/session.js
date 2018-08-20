@@ -23,7 +23,7 @@ const mutations = {
   authenticate: (state, account) => {
     state.authenticated = true;
     state.account = account;
-    console.log('PAYLOAD: ', account);
+    // console.log('PAYLOAD: ', account);
   },
   endSession: state => {
     state.authenticated = false;
@@ -47,7 +47,7 @@ const actions = {
       'apiKey': 'b2c53c18ac86c721f106f89ae8f8b7ce2c47f4de',
       'appId': 'com.mydomain.myapp',
       'vendorName': 'Anthem Bunker',
-      'vendorImageUrl': 'https://anthembunker.com/assets/img/logo.png'
+      'vendorImageUrl': 'http://192.168.95.1:8080/img/anthem-bunker-logo-light.26871cdf.png'
     };
     commit('makeContext', await makeEdgeUiContext(edgeConfig));
   },
