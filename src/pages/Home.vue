@@ -7,22 +7,21 @@
     </div>
 </template>
 
-<script scoped>
+<script>
+import TopSectionWithNav from "../components/sections/TopSectionWithNav";
+import FeaturedIn from "../components/sections/FeaturedIn";
+import FamilyBrands from "../components/sections/FamilyBrands";
+import Footer from "../components/sections/Footer";
 
-  import TopSectionWithNav from '../components/sections/TopSectionWithNav';
-  import FeaturedIn from '../components/sections/FeaturedIn';
-  import FamilyBrands from '../components/sections/FamilyBrands';
-  import Footer from '../components/sections/Footer';
-
-  export default {
-    name: 'Home',
-    components: {
-      TopSectionWithNav,
-      FeaturedIn,
-      FamilyBrands,
-      Footer
-    }
+export default {
+  name: "Home",
+  components: {
+    TopSectionWithNav,
+    FeaturedIn,
+    FamilyBrands,
+    Footer
   }
+};
 </script>
 
 <style>

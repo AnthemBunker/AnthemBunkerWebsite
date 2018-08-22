@@ -15,6 +15,7 @@ router.beforeEach((to, from, next) => {
   //   next('/');
   //   store.dispatch('session/openEdgeLoginUi');
   // }
+  next()
 })
 
 new Vue({
