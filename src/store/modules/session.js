@@ -16,6 +16,9 @@ const getters = {
   },
   getCurrentAccount: state => {
     return state.account;
+  },
+  isAuthenticated: state => {
+    return state.authenticated;
   }
 }
 

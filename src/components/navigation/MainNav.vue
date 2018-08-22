@@ -2,17 +2,14 @@
   <section id="nav-section">
     <nav class="navbar navbar-light navbar-expand-md navigation-clean-button">
       <div class="container">
-        <a class="navbar-brand" href="#">
+        <router-link class="navbar-brand" to="/">
           <img class="logoBre" src="../../assets/img/logo.png">
-        </a>
+        </router-link>
         <button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1">
-          <span class="sr-only">
-            Toggle navigation
-          </span>
-        <span class="navbar-toggler-icon"></span>
+          <span class="sr-only">Toggle navigation</span>
+          <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse"
-             id="navcol-1">
+        <div v-if="isAutheticated" class="collapse navbar-collapse" id="navcol-1">
           <ul class="nav navbar-nav ml-auto">
             <li class="dropdown"><a class=" nav-link dropdown-toggle deprt" data-toggle="dropdown" aria-expanded="false" href="#" style="color: white;">Departments</a>
               <div class="dropdown-menu" role="menu">
@@ -21,19 +18,15 @@
                 <a class="dropdown-item" role="presentation" href="https://www.anthemgold.com/">AnthemGold</a>
                 <a class="dropdown-item" role="presentation" href="http://www.anthemvaultprofessional.com/">AnthemVault</a>
                 <a class="dropdown-item" role="presentation" href="http://www.anthemnationalreserve.com//">AnthemNationalReserve</a>
-                <a class="dropdown-item" role="presentation" href="login.html">AnthemBunker</a>
               </div>
             </li>
           </ul>
           <span class="navbar-text actions">
-            <a style="color: white;" href="login.html" class="login">
-              <i class="fa fa-lock"></i>&nbsp;LOGIN
+            <a @click="login" style="color: white;cursor: pointer;" class="login">
+              <font-awesome-icon :icon="lockIcon" size="sm"></font-awesome-icon>
+              LOGIN
             </a>
-            <a
-                class="btn btn-light action-button sgnUpBtn"
-                role="button"
-                href="login.html"
-                style="border:1px solid #f9a825;border-radius:3px;">
+            <a @click="login" class="btn btn-light action-button sgnUpBtn" role="button" style="border:1px solid #f9a825;border-radius:3px;">
               SIGN UP
             </a>
           </span>
@@ -45,14 +38,17 @@
 
 <script>
   export default {
-    name: 'MainNav'
+    name: 'MainNav',
+    props: {
+      isAuthenticated: {
+        type: Boolean,
+        default: false,
+      }
+    }
   }
 </script>
 
 <style scoped>
-  #nav-section {
-    background: linear-gradient(0deg, rgba(24,38,121,.4), rgba(19,31,99,.8)), url('../../assets/img/data-center.jpg');
-  }
 
   .navigation-clean-button {
     background: #fff;
@@ -171,16 +167,18 @@
     background: #66d7d7
   }
 
+  @media (max-width:767px) {
+    .simple-slider .swiper-slide {
+      height: 360px
+    }
+  }
+
   nav {
-    background-color: transparent !important;
+    background-color: #1a237e;
   }
 
   .logoBre {
-    width: 50%;
-  }
-
-  body {
-    background-color: #fafafa;
+    width: 183px;
   }
 
   .sgnUpBtn:hover {

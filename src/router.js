@@ -2,6 +2,8 @@ import Vue from 'vue';
 import Router from 'vue-router';
 import Home from './pages/Home.vue';
 import MetamaskSection from './pages/Metamask.vue';
+import Dashboard from './pages/Dashboard.vue';
+import store from './store';
 
 Vue.use(Router);
 
@@ -15,8 +17,16 @@ export default new Router({
     },
     {
       path: '/metamask',
-      name: 'Metamask',
+      name: 'metamask',
       component: MetamaskSection,
+    },
+    {
+      path: '/dashboard',
+      name: 'dashboard',
+      component: Dashboard,
+      meta: {
+        requiresAuth: true,
+      }
     }
-  ],
+  ]
 });
