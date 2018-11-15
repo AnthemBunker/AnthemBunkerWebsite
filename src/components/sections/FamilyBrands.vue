@@ -52,19 +52,24 @@
         </div>
       </div>
     </div>
+    <div>
+    <video width="320" height="240" controls>
+  <source src="http://207.70.170.171:8080" type="video/mp4">
+      <source src="http://207.70.170.171:8080" type="video/ogg">
+Your browser does not support the video tag.
+</video>
+  </div>
   </div>
 </template>
 
 <script>
-  export default {
-    name: 'FamilyBrands',
-  }
+export default {
+  name: "FamilyBrands"
+};
 </script>
 
 <style scoped>
-  .senka {
-    box-shadow: 0px 5px 20px -10px black;
-  }
-
-
+.senka {
+  box-shadow: 0px 5px 20px -10px black;
+}
 </style>
